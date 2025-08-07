@@ -11,7 +11,7 @@ This project is a sophisticated recommendation system designed to provide busine
 
 ## 📈 Key Results & Performance
 The model's effectiveness was rigorously tested to ensure high-quality recommendations.
-* **Model Performance:** Achieved a **HitRate@3 of 0.48388**, meaning the system correctly placed a relevant flight in the top 3 recommendations for nearly 48.4% of simulated users.
+* **Model Performance:** Achieved a **HitRate@3 of 0.49472**, meaning the system correctly placed a relevant flight in the top 3 recommendations for nearly 49.5% of simulated users.
 * **Robustness:** The model's stability was validated against **1,000 simulated user query scenarios** to ensure reliable performance under various conditions.
 
 ## 📂 Project Structure
