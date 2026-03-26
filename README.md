@@ -1,51 +1,51 @@
 # ✈️ Personalized Flight Recommendation System
 
-## 🚀 Project Overview
-This project is a sophisticated recommendation system designed to provide business travelers with tailored flight options.It processes over 15,000 real-world airline reviews from SKYTRAX along with flight metadata to understand user preferences.The core of the system is a **collaborative filtering algorithm** optimized to balance key business traveler preferences: cost, travel time, and overall airline quality.
+[![FastAPI](https://img.shields.io/badge/Backend-FastAPI-009688?style=for-the-badge&logo=fastapi&logoColor=white)](https://flight-recommendation-api.onrender.com)
+[![React](https://img.shields.io/badge/Frontend-React-61DAFB?style=for-the-badge&logo=react&logoColor=black)](https://personalized-flight-recommendation.vercel.app)
+[![ML](https://img.shields.io/badge/Model-XGBoost%20Ranking-EE4C2C?style=for-the-badge&logo=xgboost&logoColor=white)]()
+
+A full-stack, end-to-end machine learning application designed to optimize flight selection for travelers. This system utilizes a **Pairwise Ranking (Learning to Rank)** approach to balance cost, travel duration, and airline quality based on real-world airline reviews and flight metadata.
+
+## 🚀 Live Links
+* **Web Dashboard:** [https://personalized-flight-recommendation.vercel.app](https://personalized-flight-recommendation.vercel.app)
+* **Interactive API Docs:** [https://flight-recommendation-api.onrender.com/docs](https://flight-recommendation-api.onrender.com/docs)
+
+---
 
 ## 🛠️ Tech Stack
-- **Languages:** Python
-- **Data Processing:** DuckDB, Polars
-- **Machine Learning:** Scikit-learn, LightGBM
-- **Hyperparameter Tuning:** Optuna
+* **Machine Learning:** XGBoost (Pairwise Ranking), Scikit-learn, Optuna.
+* **Data Engineering:** Polars & DuckDB (High-performance data processing).
+* **Backend:** FastAPI, Uvicorn, Pydantic (RESTful API).
+* **Frontend:** React.js, Vite, Tailwind CSS v4.
+* **Cloud & MLOps:** Render (API Hosting), Vercel (Frontend), Model Compression (UBJ).
+
+---
 
 ## 📈 Key Results & Performance
-The model's effectiveness was rigorously tested to ensure high-quality recommendations.
-* **Model Performance:** Achieved a **HitRate@3 of 0.49068**, meaning the system correctly placed a relevant flight in the top 3 recommendations for nearly 49% of simulated users.
-* **Robustness:** The model's stability was validated against **1,000 simulated user query scenarios** to ensure reliable performance under various conditions.
+The model was trained and validated using the **Aeroclub RecSys 2025** dataset.
+* **Model Performance:** Achieved a **HitRate@3 of 0.49068**, meaning the system correctly predicts a relevant flight in the top 3 results for ~49% of users.
+* **Latency:** Optimized inference pipeline using binary model formats to ensure sub-100ms response times.
+* **Robustness:** Validated across 1,000+ simulated user query scenarios to ensure stable recommendations.
 
+---
+
+## 🧠 System Architecture
+1.  **Preprocessing:** Live JSON data is transformed using **Polars** to handle high-cardinality categorical features (Airlines, Routes) and numeric scaling.
+2.  **Ranking Logic:** Uses an **XGBRanker** to learn user preference patterns, prioritizing "Best Value" (balancing Price and Time efficiency).
+3.  **API Layer:** A containerized FastAPI server that handles model loading and real-time inference.
+4.  **UI Layer:** A modern React dashboard that reorders flight results in real-time based on AI confidence scores.
+
+---
 
 ## 📂 Project Structure
-A clean and organized folder structure makes your project easy to navigate.
-flight-recommendation-system
-- notebooks (Jupyter notebooks for exploration and analysis)
-- src        (Source code (e.g., Python scripts for data processing, model training))
-- README.md   (You are here!)
-- requirements.txt   (List of Python libraries needed to run the project)
-## 💾 Data
-The dataset for this project is from the **Aeroclub RecSys 2025 Kaggle Competition**. Due to its large size (5GB), it is not included in this repository.
-
-**To run this project, you must download the data from the competition page:**
-
-1.  **Download from Kaggle:** Visit the [Aeroclub RecSys 2025 Competition Page](https://www.kaggle.com/competitions/aeroclub-recsys-2025) and download the `train.parquet` and `test.parquet` files.
-2.  **Place the Data:** Create a folder named `data` in the root of this project folder. Place the downloaded `.parquet` files inside this `data` folder.
-3.  **Final Structure:** Your project folder should look like this:
-
-    ```
-    /flight-recommendation-system
-    |
-    ├── data/
-    │   ├── train.parquet
-    │   └── test.parquet
-    ├── notebooks/
-    ├── src/
-    ├── README.md
-    └── requirements.txt
-    ```
-
-## 🔧 How to Run
-To get this project running locally, follow these steps:
-1.  Clone the repository: `git clone https://github.com/your-username/flight-recommendation-system.git`
-2.  Navigate to the project directory: `cd flight-recommendation-system`
-3.  Install the required dependencies: `pip install -r requirements.txt`
-4.  Run the main analysis notebook located in the `/notebooks` folder.
+```text
+Personalized-Flight-Recommendation-System/
+├── flight-backend/          # Python FastAPI Server
+│   ├── assets/              # Compressed Model & Preprocessing Maps
+│   ├── main.py              # API Inference Logic
+│   └── requirements.txt     # Backend Dependencies
+├── flight-frontend/         # React + Vite Dashboard
+│   ├── src/                 # UI Components & Search Logic
+│   └── package.json
+├── notebooks/               # Jupyter Notebooks (Model Training & EDA)
+└── README.md
