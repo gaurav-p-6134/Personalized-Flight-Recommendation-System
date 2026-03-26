@@ -47,5 +47,5 @@ Personalized-Flight-Recommendation-System/
 ├── flight-frontend/         # React + Vite Dashboard
 │   ├── src/                 # UI Components & Search Logic
 │   └── package.json
-├── notebooks/               # Jupyter Notebooks (Model Training & EDA)
+├── flight-recommendation-system/notebook/               # Jupyter Notebooks (Model Training & EDA)
 └── README.md
