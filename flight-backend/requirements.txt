@@ -4,3 +4,4 @@ polars
 xgboost
 pydantic
 python-multipart
+pyarrow
