@@ -19,7 +19,7 @@ function App() {
       const mockFlights = generateMockFlights(origin.toUpperCase(), destination.toUpperCase(), 10);
 
       // 2. Send them to your local Python XGBoost API
-      const response = await fetch('https://flight-recommendation-api.onrender.com', {
+      const response = await fetch('https://flight-recommendation-api.onrender.com/recommend', {
         method: 'POST',
         headers: { 'Content-Type': 'application/json' },
         body: JSON.stringify({
